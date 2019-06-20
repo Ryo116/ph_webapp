@@ -59,8 +59,13 @@ np.linspace(0,180,25)
 
 dizitize(hue, bins)
 hueの値をbinsでグループ化
-Counter
+e.g hueの値が0-7.5の間→binsの1に対応
 
+Counter
+各Indexの個数を数える
+
+most_common
+出現回数順に要素を取得
 """
 bins = np.linspace(0, 180, 25)
 # print(bins)
