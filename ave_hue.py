@@ -17,6 +17,24 @@ img_hsv = cv2.cvtColor(img_scr, cv2.COLOR_BGR2HSV)
 height = img_hsv.shape[0]
 width = img_hsv.shape[1]
 
+"""
+       x
+  |--------|
+y |--------|
+  |--------|
+hue and saturation types are list
+高さy 、幅x の画像の各ピクセルごとに彩度４５以上かつ明度３５以上の場合
+hue に色相の数値　saturationに明度の数字を加えていく
+[y,x,z]
+z==0
+    ピクセル(y,x)の色彩の数値(0~180)
+z==1
+    ピクセル(y,x)の彩度の数値
+z==2
+    ピクセル(y,x)の明度の数値
+javaだったらintの配列？
+"""
+
 hue = []
 saturation = []
 
@@ -34,6 +52,16 @@ plt.xlim(0, 180)
 plt.xticks([0, 15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180])
 plt.hist(hue, bins=24, range=(0, 180), align="mid", rwidth=1.0, color="blue")
 
+"""
+np.linspace(0,180,25)
+スタート0、終わり180、項数25の等差数列の作成
+今回は7.5刻み
+
+dizitize(hue, bins)
+hueの値をbinsでグループ化
+Counter
+
+"""
 bins = np.linspace(0, 180, 25)
 # print(bins)
 index = np.digitize(hue, bins)
